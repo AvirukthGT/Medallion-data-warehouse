@@ -17,11 +17,13 @@ IF OBJECT_ID('bronze.crm_cust_feedback', 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_feedback;
 GO
 
+
+
 CREATE TABLE bronze.crm_cust_feedback (
     feedback_id     INT,                    -- Unique feedback identifier
     cst_id          INT,                    -- Foreign key to customers table
     feedback_test   NVARCHAR(255),          -- Text of the feedback
-    feedback_date   DATE,                   -- Date feedback was given
+    feedback_date   NVARCHAR(50),                   -- Date feedback was given
     rating          INT                     -- Customer rating (e.g., 1-5)
 );
 GO
@@ -39,8 +41,8 @@ CREATE TABLE bronze.crm_customers (
     cst_firstname    NVARCHAR(50),          -- Customer first name
     cst_lastname     NVARCHAR(50),          -- Customer last name
     cst_email        NVARCHAR(80),          -- Email address
-    cst_phone        NVARCHAR(50),          -- Contact phone number
-    cst_create_date  DATE,                  -- Account creation date
+    cst_phone        NVARCHAR(100),          -- Contact phone number
+    cst_create_date  NVARCHAR(50),                  -- Account creation date
     segment_id       INT                    -- Foreign key to customer segment
 );
 GO
@@ -87,7 +89,7 @@ CREATE TABLE bronze.erp_products (
     prd_id           INT,                   -- Product ID (primary key)
     prd_name         NVARCHAR(200),         -- Name of the product
     prd_category     NVARCHAR(100),         -- Category name (denormalized)
-    prd_price        FLOAT,                 -- Retail price
+    prd_price        NVARCHAR(20),                 -- Retail price
     prd_create_date  DATE                   -- Date product was added
 );
 GO
@@ -104,9 +106,9 @@ CREATE TABLE bronze.erp_prod_sales (
     sale_id      INT,                       -- Unique sale transaction ID
     cst_id       INT,                       -- Customer who made the purchase
     prd_id       INT,                       -- Product sold
-    sale_date    DATE,                      -- Date of transaction
+    sale_date    NVARCHAR(50),                      -- Date of transaction
     quantity     INT,                       -- Units sold
-    unit_price   FLOAT,                     -- Price per unit at sale time
+    unit_price   NVARCHAR(20),                     -- Price per unit at sale time
     sale_amount  FLOAT,                     -- Total amount = quantity * unit_price
     channel      NVARCHAR(100)              -- Sales channel (e.g., Online, In-Store)
 );
