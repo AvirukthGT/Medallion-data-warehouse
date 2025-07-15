@@ -1,0 +1,7 @@
+category_id,category_name,margin_percent
+1,Electronics,0.2
+2,Clothing,0.3
+3,Home,0.25
+4,Sports,0.15
+5,Books,0.35
+6,,0.0

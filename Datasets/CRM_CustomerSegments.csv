@@ -1,0 +1,6 @@
+segment_id,segment_name,discount_percent
+1,Regular,0
+2,Silvver,5
+3,Gold,10
+4,Platinum,15
+5,,-5
