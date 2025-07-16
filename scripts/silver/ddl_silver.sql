@@ -8,11 +8,11 @@ IF OBJECT_ID('silver.crm_cust_feedback', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.crm_cust_feedback (
-    feedback_id     INT,
-    cst_id          INT,
+    feedback_id     INT PRIMARY KEY,
+    cst_id          INT NOT NULL,
     feedback_test   NVARCHAR(255),
     feedback_date   DATE,
-    rating          INT,
+    rating          INT CHECK (rating BETWEEN 0 AND 5),
     dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
@@ -92,3 +92,4 @@ CREATE TABLE silver.erp_prod_sales (
     dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
+
